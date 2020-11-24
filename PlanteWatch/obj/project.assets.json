@@ -1,11 +1,51 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "ModelLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ModelLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLib.dll": {}
+        }
+      },
+      "RestApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ModelLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RestApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RestApi.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ModelLib/1.0.0": {
+      "type": "project",
+      "path": "../ModelLib/ModelLib.csproj",
+      "msbuildProject": "../ModelLib/ModelLib.csproj"
+    },
+    "RestApi/1.0.0": {
+      "type": "project",
+      "path": "../RestApi/RestApi.csproj",
+      "msbuildProject": "../RestApi/RestApi.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "RestApi >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\sebas\\.nuget\\packages\\": {}
@@ -32,7 +72,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\sebas\\source\\repos\\PlanteWatch\\RestApi\\RestApi.csproj": {
+              "projectPath": "C:\\Users\\sebas\\source\\repos\\PlanteWatch\\RestApi\\RestApi.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -54,6 +98,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

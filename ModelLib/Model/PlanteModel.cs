@@ -22,5 +22,9 @@
             get => _humidity;
             set => _humidity = value;
         }
+        public override string ToString()
+        {
+            return $"Id: {Id}, Humidity: {Humidity}";
+        }
     }
 }
