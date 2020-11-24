@@ -13,12 +13,17 @@ namespace PlanteWatch
         private static string _input = null;
         private static string _mainMenu = "Which data do you need?\n1: All\n2: Humidity\n3: End";
 
+        static void ErrorMessage()
+        {
+            Console.WriteLine("Unrecognisable command");
+        }
+
         static void Main(string[] args)
         {
 
             do
             {
-                Console.WriteLine(_mainMenu);
+                Console.WriteLine("\n" + _mainMenu);
                 _input = Console.ReadLine();
 
                 //All input
@@ -28,32 +33,27 @@ namespace PlanteWatch
                     {
                         Console.WriteLine(array);
                     }
-                    Console.WriteLine(_mainMenu);
-                    _input = Console.ReadLine();
                 }
 
                 //Humidity input
-                if (_input == "Humidity" | _input == "2")
+                else if (_input == "Humidity" | _input == "2")
                 {
-                    foreach (PlanteModel planteModel in _planteWatchController.Get())
+                    foreach (var planteModel in _planteWatchController.Get())
                     {
-                        Console.WriteLine(planteModel.Humidity);
+                        Console.WriteLine("Humidity: " + planteModel.Humidity);
                     }
-                    Console.WriteLine(_mainMenu);
-                    _input = Console.ReadLine();
                 }
 
                 //End input
-                if (_input == "End" | _input == "3")
+                else if (_input == "End" | _input == "3")
                 {
                     _running = false;
                 }
 
                 //Unrecognisable input
-                else
+                else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" && _input != "End" && _input != "3")
                 {
                     Console.WriteLine("Unrecognisable command");
-                    _input = Console.ReadLine();
                 }
             } while (_running == true);
         }
