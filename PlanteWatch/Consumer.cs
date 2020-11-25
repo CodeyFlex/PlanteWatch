@@ -40,7 +40,7 @@ namespace PlanteWatch
                 {
                     foreach (var planteModel in _planteWatchController.Get())
                     {
-                        Console.WriteLine("Humidity: " + planteModel.Id + planteModel.Humidity);
+                        Console.WriteLine(planteModel.Id + planteModel.Humidity);
                     }
                 }
 
