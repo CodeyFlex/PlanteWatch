@@ -40,7 +40,7 @@ namespace PlanteWatch
                 {
                     foreach (var planteModel in _planteWatchController.Get())
                     {
-                        Console.WriteLine("Humidity: " + planteModel.Humidity);
+                        Console.WriteLine("Humidity: " + planteModel.Id + planteModel.Humidity);
                     }
                 }
 
@@ -53,7 +53,7 @@ namespace PlanteWatch
                 //Unrecognisable input
                 else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" && _input != "End" && _input != "3")
                 {
-                    Console.WriteLine("Unrecognisable command");
+                    ErrorMessage();
                 }
             } while (_running == true);
         }
