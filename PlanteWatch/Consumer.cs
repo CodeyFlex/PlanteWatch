@@ -9,9 +9,13 @@ namespace PlanteWatch
         //Instance of RestAPI Controller
         private static PlanteWatchController _planteWatchController = new PlanteWatchController();
 
-        private static bool _running = true;
-        private static string _input = null;
-        private static string _mainMenu = "Which data do you need?\n1: All\n2: Humidity\n3: End";
+        private static bool _runningBool = true;
+        private static bool _plantMenuBool;
+        private static bool _greenhouseMenuBool;
+        private static string _input;
+        private static string _mainMenuString = "Which data do you need?\n1: Plants\n2: Grenhouses\n3: End";
+        private static string _plantMenuString = "Which data about plants do you need?\n1: All\n2: Humidity\n3: Nourishment\n4: Back";
+        private static string _greenhouseMenuString = "Which data about your greenhouses do you need?\n1: All\n2: Humidity\n3: Temperature\n4: Light Level\n5: Back";
 
         static void ErrorMessage()
         {
@@ -23,13 +27,51 @@ namespace PlanteWatch
 
             do
             {
-                Console.WriteLine("\n" + _mainMenu);
+                Console.WriteLine("\n" + _mainMenuString);
+                _input = Console.ReadLine();
+
+                //Plants input
+                if (_input == "Plants" | _input == "1")
+                {
+                    _plantMenuBool = true;
+                    PresentPlantMenu();
+                }
+
+                //Greenhouse input
+                if (_input == "Greenhouses" | _input == "2")
+                {
+                    _greenhouseMenuBool = true;
+                    PresentGreenhouseMenu();
+                }
+
+                //End input
+                else if (_input == "End" | _input == "3")
+                {
+                    _runningBool = false;
+                }
+
+                //Unrecognisable input
+                else if (_input != "Plants" && _input != "1" && _input != "Greenhouses" && _input != "2" &&
+                         _input != "End" && _input != "3")
+                {
+                    ErrorMessage();
+                }
+
+                
+
+            }while (_runningBool == true);
+        }
+        static void PresentPlantMenu()
+        {
+            do
+            {
+                Console.WriteLine("\n" + _plantMenuString);
                 _input = Console.ReadLine();
 
                 //All input
                 if (_input == "All" | _input == "1")
                 {
-                    foreach (var array in _planteWatchController.Get())
+                    foreach (var array in _planteWatchController.GetPlants())
                     {
                         Console.WriteLine(array);
                     }
@@ -38,24 +80,98 @@ namespace PlanteWatch
                 //Humidity input
                 else if (_input == "Humidity" | _input == "2")
                 {
-                    foreach (var planteModel in _planteWatchController.Get())
+                    foreach (var planteModel in _planteWatchController.GetPlants())
                     {
-                        Console.WriteLine(planteModel.Id + planteModel.Humidity);
+                        Console.Write("Name: " + planteModel.Name);
+                        Console.Write(" Humidity: " + planteModel.Humidity + "\n");
                     }
                 }
 
-                //End input
-                else if (_input == "End" | _input == "3")
+                //Nourishment input
+                else if (_input == "Nourishment" | _input == "3")
                 {
-                    _running = false;
+                    foreach (var planteModel in _planteWatchController.GetPlants())
+                    {
+                        Console.Write("Name: " + planteModel.Name);
+                        Console.Write(" Nourishment: " + planteModel.Nutrition + "\n");
+                    }
+                }
+
+                //Back input
+                else if (_input == "Back" | _input == "4")
+                {
+                    _plantMenuBool = false;
                 }
 
                 //Unrecognisable input
-                else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" && _input != "End" && _input != "3")
+                else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" &&
+                         _input != "Back" && _input != "4" && _input == "Nourishment" && _input == "3")
                 {
                     ErrorMessage();
                 }
-            } while (_running == true);
+            } while (_plantMenuBool == true);
+        }
+
+        static void PresentGreenhouseMenu()
+        {
+            do
+            {
+                Console.WriteLine("\n" + _greenhouseMenuString);
+                _input = Console.ReadLine();
+
+                //All input
+                if (_input == "All" | _input == "1")
+                {
+                    foreach (var array in _planteWatchController.GetGreenhouses())
+                    {
+                        Console.WriteLine(array);
+                    }
+                }
+
+                //Humidity input
+                else if (_input == "Humidity" | _input == "2")
+                {
+                    foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
+                    {
+                        Console.Write("Name: " + greenhouseModel.Name);
+                        Console.Write(" Humidity: " + greenhouseModel.Humidity + "\n");
+                    }
+                }
+
+                //Nourishment input
+                else if (_input == "Temperature" | _input == "3")
+                {
+                    foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
+                    {
+                        Console.Write("Name: " + greenhouseModel.Name);
+                        Console.Write(" Temperature: " + greenhouseModel.Temperature + "\n");
+                    }
+                }
+
+                //Light Level input
+                else if (_input == "Light Level" | _input == "4")
+                {
+                    foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
+                    {
+                        Console.Write("Name: " + greenhouseModel.Name);
+                        Console.Write(" Light Level: " + greenhouseModel.LightLevel + "\n");
+                    }
+                }
+
+                //Back input
+                else if (_input == "Back" | _input == "5")
+                {
+                    _greenhouseMenuBool = false;
+                }
+
+                //Unrecognisable input
+                else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" &&
+                         _input == "Temperature" && _input == "3" && _input != "Light Level" && _input != "4" &&
+                        _input == "Back" | _input == "5")
+                {
+                    ErrorMessage();
+                }
+            } while (_greenhouseMenuBool == true);
         }
     }
 }
