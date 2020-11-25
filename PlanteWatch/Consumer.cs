@@ -29,6 +29,7 @@ namespace PlanteWatch
             {
                 Console.WriteLine("\n" + _mainMenuString);
                 _input = Console.ReadLine();
+                Console.Clear();
 
                 //Plants input
                 if (_input == "Plants" | _input == "1")
@@ -67,6 +68,7 @@ namespace PlanteWatch
             {
                 Console.WriteLine("\n" + _plantMenuString);
                 _input = Console.ReadLine();
+                Console.Clear();
 
                 //All input
                 if (_input == "All" | _input == "1")
@@ -105,7 +107,7 @@ namespace PlanteWatch
 
                 //Unrecognisable input
                 else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" &&
-                         _input != "Back" && _input != "4" && _input == "Nourishment" && _input == "3")
+                         _input != "Back" && _input != "4" && _input != "Nourishment" && _input != "3")
                 {
                     ErrorMessage();
                 }
@@ -118,6 +120,7 @@ namespace PlanteWatch
             {
                 Console.WriteLine("\n" + _greenhouseMenuString);
                 _input = Console.ReadLine();
+                Console.Clear();
 
                 //All input
                 if (_input == "All" | _input == "1")
@@ -166,8 +169,8 @@ namespace PlanteWatch
 
                 //Unrecognisable input
                 else if (_input != "All" && _input != "1" && _input != "Humidity" && _input != "2" &&
-                         _input == "Temperature" && _input == "3" && _input != "Light Level" && _input != "4" &&
-                        _input == "Back" | _input == "5")
+                         _input != "Temperature" && _input != "3" && _input != "Light Level" && _input != "4" &&
+                        _input != "Back" | _input != "5")
                 {
                     ErrorMessage();
                 }
