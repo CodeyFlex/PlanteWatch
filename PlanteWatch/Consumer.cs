@@ -24,7 +24,6 @@ namespace PlanteWatch
 
         static void Main(string[] args)
         {
-
             do
             {
                 Console.WriteLine("\n" + _mainMenuString);
@@ -57,11 +56,10 @@ namespace PlanteWatch
                 {
                     ErrorMessage();
                 }
-
-                
-
             }while (_runningBool == true);
         }
+
+        //Plants Menu
         static void PresentPlantMenu()
         {
             do
@@ -114,6 +112,7 @@ namespace PlanteWatch
             } while (_plantMenuBool == true);
         }
 
+        //Greenhouse Menu
         static void PresentGreenhouseMenu()
         {
             do

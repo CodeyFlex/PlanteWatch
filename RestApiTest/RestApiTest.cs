@@ -17,22 +17,28 @@ namespace RestApiTest
         private PlanteModel _planteModel = new PlanteModel();
 
         [TestMethod]
-        public void GetTest()
+        public void GetPlantsTest()
         {
             Assert.AreEqual(5, _planteWatchController.GetPlants().Count());
         }
 
         [TestMethod]
-        public void GetByIdTest()
+        public void GetGreenhousesTest()
         {
-            Assert.AreEqual(3, _planteWatchController.GetById(3).Id);
-            Assert.AreEqual(44, _planteWatchController.GetById(3).Humidity);
+            Assert.AreEqual(3, _planteWatchController.GetGreenhouses().Count());
         }
 
         [TestMethod]
-        public void GetByHumidityTest()
+        public void GetPlantsByIdTest()
         {
-            Assert.AreEqual(1, _planteWatchController.GetByHumidity(35).Count());
+            Assert.AreEqual(3, _planteWatchController.GetPlantById(3).Id);
+            Assert.AreEqual(44, _planteWatchController.GetPlantById(3).Humidity);
+        }
+
+        [TestMethod]
+        public void GetPlantsByHumidityTest()
+        {
+            Assert.AreEqual(1, _planteWatchController.GetPlantsByHumidity(35).Count());
         }
     }
 }

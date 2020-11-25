@@ -9,7 +9,7 @@ namespace RestApi.Controllers
     public class PlanteWatchController : ControllerBase
     {
         //List of Plant Data
-        private static List<PlanteModel> _planteData = new List<PlanteModel>()
+        private static List<PlanteModel> _plantData = new List<PlanteModel>()
         {
             new PlanteModel(0, "Plant 1", 35, 10),
             new PlanteModel(1, "Plant 2", 38, 8),
@@ -30,7 +30,7 @@ namespace RestApi.Controllers
         [HttpGet]
         public IEnumerable<PlanteModel> GetPlants()
         {
-            return _planteData;
+            return _plantData;
         }
 
         // GET: api/<PlanteWatchController>
@@ -42,16 +42,16 @@ namespace RestApi.Controllers
 
         // GET api/<PlanteWatchController>/5
         [HttpGet("{id}")]
-        public PlanteModel GetById(int id)
+        public PlanteModel GetPlantById(int id)
         {
-            return _planteData.Find(i => i.Id.Equals(id));
+            return _plantData.Find(i => i.Id.Equals(id));
         }
 
         // GET api/<PlanteWatchController>/Humidity/35
         [HttpGet("Humidity/{Humidity}")]
-        public IEnumerable<PlanteModel> GetByHumidity(int humidity)
+        public IEnumerable<PlanteModel> GetPlantsByHumidity(int humidity)
         {
-            return _planteData.FindAll(i => i.Humidity.Equals(humidity));
+            return _plantData.FindAll(i => i.Humidity.Equals(humidity));
         }
     }
 }

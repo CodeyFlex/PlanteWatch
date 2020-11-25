@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ModelLib.Model
+﻿namespace ModelLib.Model
 {
     public class GreenhouseModel
     {
@@ -11,10 +7,6 @@ namespace ModelLib.Model
         private int _temperature;
         private int _lightLevel;
 
-        public GreenhouseModel()
-        {
-        }
-
         public GreenhouseModel(int id, string name, int humidity, int temperature, int lightLevel)
         {
             Id = id;
@@ -22,6 +14,9 @@ namespace ModelLib.Model
             _humidity = humidity;
             _temperature = temperature;
             _lightLevel = lightLevel;
+        }
+        public GreenhouseModel()
+        {
         }
 
         public int Id { get; set; }

@@ -40,7 +40,7 @@
 
         public override string ToString()
         {
-            return $"Id: {Id}, Humidity: {Humidity}";
+            return $"Id: {Id}, Name: {Name}, Humidity: {Humidity}, Nutrition: {Nutrition}";
         }
     }
 }
