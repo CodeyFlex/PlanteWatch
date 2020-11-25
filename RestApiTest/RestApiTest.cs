@@ -19,7 +19,7 @@ namespace RestApiTest
         [TestMethod]
         public void GetTest()
         {
-            Assert.AreEqual(5, _planteWatchController.Get().Count());
+            Assert.AreEqual(5, _planteWatchController.GetPlants().Count());
         }
 
         [TestMethod]

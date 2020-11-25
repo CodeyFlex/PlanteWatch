@@ -12,6 +12,20 @@ namespace PlanteModelTest
         private PlanteModel _planteModel = new PlanteModel();
 
         [TestMethod]
+        public void PlanteIdTest()
+        {
+            _planteModel.Id = 1;
+            Assert.AreEqual(1, _planteModel.Id);
+        }
+
+        [TestMethod]
+        public void PlanteNameTest()
+        {
+            _planteModel.Name = "Test Plante";
+            Assert.AreEqual("Test Plante", _planteModel.Name);
+        }
+
+        [TestMethod]
         public void PlanteHumidityTest()
         {
             _planteModel.Humidity = 35;
@@ -19,10 +33,10 @@ namespace PlanteModelTest
         }
 
         [TestMethod]
-        public void PlanteIdTest()
+        public void PlanteNutritionTest()
         {
-            _planteModel.Id = 1;
-            Assert.AreEqual(1, _planteModel.Id);
+            _planteModel.Nutrition = 8;
+            Assert.AreEqual(8, _planteModel.Nutrition);
         }
     }
 }
