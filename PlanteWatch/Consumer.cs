@@ -14,8 +14,8 @@ namespace PlanteWatch
         private static bool _greenhouseMenuBool;
         private static string _input;
         private static string _mainMenuString = "Which data do you need?\n1: Plants\n2: Grenhouses\n3: End";
-        private static string _plantMenuString = "Which data about plants do you need?\n1: All\n2: Humidity\n3: Nourishment\n4: Back";
-        private static string _greenhouseMenuString = "Which data about your greenhouses do you need?\n1: All\n2: Humidity\n3: Temperature\n4: Light Level\n5: Back";
+        private static string _plantMenuString = "Which Plant data do you need?\n1: All\n2: Humidity\n3: Nourishment\n4: Back";
+        private static string _greenhouseMenuString = "Which Greenhouse data do you need?\n1: All\n2: Humidity\n3: Temperature\n4: Light Level\n5: Back";
 
         static void ErrorMessage()
         {
@@ -71,6 +71,8 @@ namespace PlanteWatch
                 //All input
                 if (_input == "All" | _input == "1")
                 {
+                    Console.WriteLine("All Plant Data: \n");
+
                     foreach (var array in _planteWatchController.GetPlants())
                     {
                         Console.WriteLine(array);
@@ -80,6 +82,8 @@ namespace PlanteWatch
                 //Humidity input
                 else if (_input == "Humidity" | _input == "2")
                 {
+                    Console.WriteLine("All Plant Humidity Data: \n");
+
                     foreach (var planteModel in _planteWatchController.GetPlants())
                     {
                         Console.Write("Name: " + planteModel.Name);
@@ -90,6 +94,8 @@ namespace PlanteWatch
                 //Nourishment input
                 else if (_input == "Nourishment" | _input == "3")
                 {
+                    Console.WriteLine("All Plant Nourishment Data: \n");
+
                     foreach (var planteModel in _planteWatchController.GetPlants())
                     {
                         Console.Write("Name: " + planteModel.Name);
@@ -124,6 +130,8 @@ namespace PlanteWatch
                 //All input
                 if (_input == "All" | _input == "1")
                 {
+                    Console.WriteLine("All Greenhouse Data: \n");
+
                     foreach (var array in _planteWatchController.GetGreenhouses())
                     {
                         Console.WriteLine(array);
@@ -133,6 +141,8 @@ namespace PlanteWatch
                 //Humidity input
                 else if (_input == "Humidity" | _input == "2")
                 {
+                    Console.WriteLine("All Greenhouse Humidity Data: \n");
+
                     foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
                     {
                         Console.Write("Name: " + greenhouseModel.Name);
@@ -143,6 +153,8 @@ namespace PlanteWatch
                 //Nourishment input
                 else if (_input == "Temperature" | _input == "3")
                 {
+                    Console.WriteLine("All Greenhouse Temperature Data: \n");
+
                     foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
                     {
                         Console.Write("Name: " + greenhouseModel.Name);
@@ -153,6 +165,8 @@ namespace PlanteWatch
                 //Light Level input
                 else if (_input == "Light Level" | _input == "4")
                 {
+                    Console.WriteLine("All Greenhouse Light Level Data: \n");
+
                     foreach (var greenhouseModel in _planteWatchController.GetGreenhouses())
                     {
                         Console.Write("Name: " + greenhouseModel.Name);
