@@ -9,8 +9,9 @@ namespace RestApi
 {
     public class Worker
     {
+        private static Token token = new Token();
         private static string GetPlantURI =
-            "https://trefle.io/api/v1/plants?token=gPV5s0hW5aKu4geLlM13T0AXByPnHbHeHdkyw_si8Z4&filter[common_name]=";
+            "https://trefle.io/api/v1/plants?token=" + token.TokenValueApi + "&filter[common_name]=";
         /* doesn't return some values for some reason
         public static TrefleModel GetOnePlantAsync(String name)
         {

@@ -1,6 +1,11 @@
-﻿using System;
+﻿using RestApi.Controllers;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using ModelLib.Model;
-using RestApi.Controllers;
+using Newtonsoft.Json;
 
 namespace PlanteWatch
 {
@@ -8,14 +13,17 @@ namespace PlanteWatch
     {
         //Instance of RestAPI Controller
         private static PlanteWatchController _planteWatchController = new PlanteWatchController();
+        private static Worker worker = new Worker();
 
         private static bool _runningBool = true;
         private static bool _plantMenuBool;
         private static bool _greenhouseMenuBool;
+        private static bool _apiMenuBool;
         private static string _input;
-        private static string _mainMenuString = "Which data do you need?\n1: Plants\n2: Grenhouses\n3: End";
+        private static string _mainMenuString = "Which data do you need?\n1: Plants\n2: Grenhouses\n3: API\n4: End";
         private static string _plantMenuString = "Which Plant data do you need?\n1: All\n2: Humidity\n3: Nourishment\n4: Back";
         private static string _greenhouseMenuString = "Which Greenhouse data do you need?\n1: All\n2: Humidity\n3: Temperature\n4: Light Level\n5: Back";
+        private static string _apiMenuString = "Which api data do you need?\n1: All\n2: Back";
 
         static void ErrorMessage()
         {
@@ -44,15 +52,23 @@ namespace PlanteWatch
                     PresentGreenhouseMenu();
                 }
 
+
+                //API input
+                if (_input == "API" | _input == "3")
+                {
+                    _greenhouseMenuBool = true;
+                    PresentAPIMenu();
+                }
+
                 //End input
-                else if (_input == "End" | _input == "3")
+                else if (_input == "End" | _input == "4")
                 {
                     _runningBool = false;
                 }
 
                 //Unrecognisable input
                 else if (_input != "Plants" && _input != "1" && _input != "Greenhouses" && _input != "2" &&
-                         _input != "End" && _input != "3")
+                         _input != "API" && _input != "3" && _input != "End" && _input != "4")
                 {
                     ErrorMessage();
                 }
@@ -188,6 +204,38 @@ namespace PlanteWatch
                     ErrorMessage();
                 }
             } while (_greenhouseMenuBool == true);
+        }
+
+        //API Menu
+        static void PresentAPIMenu()
+        {
+            do
+            {
+                Console.WriteLine("\n" + _apiMenuString);
+                _input = Console.ReadLine();
+                Console.Clear();
+
+                //All input
+                if (_input == "All" | _input == "1")
+                {
+                    Console.WriteLine("All API Data: \n");
+
+                        worker.Start();
+                }
+
+                //Back input
+                else if (_input == "Back" | _input == "2")
+                {
+                    _apiMenuBool = false;
+                }
+
+                //Unrecognisable input
+                else if (_input != "All" && _input != "1" &&
+                        _input != "Back" | _input != "2")
+                {
+                    ErrorMessage();
+                }
+            } while (_apiMenuBool == true);
         }
     }
 }
