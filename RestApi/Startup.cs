@@ -26,6 +26,12 @@ namespace RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin", builder => builder.AllowAnyOrigin());
+                options.AddPolicy("AllowMyLocalOrigin", builder => builder.WithOrigins("http://localhost:51283"));
+                options.AddPolicy("AllowGetPost", builder => builder.AllowAnyOrigin().WithMethods("GET", "POST"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +41,8 @@ namespace RestApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowAnyOrigin");
 
             app.UseHttpsRedirection();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using ModelLib.Model;
 using System.Collections.Generic;
 
@@ -27,31 +28,61 @@ namespace RestApi.Controllers
         };
 
         // GET: api/<PlanteWatchController>
-        [HttpGet]
+        [HttpGet("Plant/")]
         public IEnumerable<PlanteModel> GetPlants()
         {
             return _plantData;
         }
 
         // GET: api/<PlanteWatchController>
-        [HttpGet]
+        [HttpGet("Greenhouse/")]
         public IEnumerable<GreenhouseModel> GetGreenhouses()
         {
             return _greenhouseData;
         }
 
-        // GET api/<PlanteWatchController>/5
-        [HttpGet("{id}")]
+        // GET api/<PlanteWatchController>/3
+        [HttpGet("Plant/Id/{id}")]
         public PlanteModel GetPlantById(int id)
         {
             return _plantData.Find(i => i.Id.Equals(id));
         }
 
+        // GET api/<PlanteWatchController>/2
+        [HttpGet("Plant/Name/{name}")]
+        public PlanteModel GetPlantByName(string name)
+        {
+            return _plantData.Find(i => i.Name.Contains(name));
+        }
+
+        // GET api/<PlanteWatchController>/1
+        [HttpGet("Greenhouse/Name/{name}")]
+        public GreenhouseModel GetGreenhouseByName(string name)
+        {
+            return _greenhouseData.Find(i => i.Name.Contains(name));
+        }
+
         // GET api/<PlanteWatchController>/Humidity/35
-        [HttpGet("Humidity/{Humidity}")]
+        [HttpGet("Plant/Humidity/{Humidity}")]
         public IEnumerable<PlanteModel> GetPlantsByHumidity(int humidity)
         {
             return _plantData.FindAll(i => i.Humidity.Equals(humidity));
+        }
+
+        /* doesn't return some values for some reason
+        // GET api/<PlanteWatchController>/Trefle/
+        [HttpGet("Trefle/Name/{Name}")]
+        public TrefleModel GetTreflePlantByName(string name)
+        {
+            return Worker.GetOnePlantAsync(name);
+        }
+        */
+        
+        // GET api/<PlanteWatchController>/Trefle/
+        [HttpGet("Trefle/Name/{Name}")]
+        public String GetTreflePlantByName(string name)
+        {
+            return Worker.GetOnePlantAsync(name);
         }
     }
 }
