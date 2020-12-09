@@ -6,4 +6,4 @@ Includes:
 
 - Console Consumer
 
-- Browser Consumer
+- Browser Consumer (Designed with bootstrap)
