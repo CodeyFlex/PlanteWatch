@@ -6,4 +6,4 @@ Includes:
 
 - Console Consumer
 
-- Browser Consumer (Designed with bootstrap)
+- Browser Consumer (Designed with bootstrap) (Coded with Vue, Typescript & HTML)
