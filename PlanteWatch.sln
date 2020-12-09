@@ -17,16 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "RestApi\RestApi.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenhouseModelTest", "GreenhouseModelTest\GreenhouseModelTest.csproj", "{EC662B5D-3914-4851-B6AF-EB63A596F609}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Browser Consumer", "Browser Consumer", "{1FD4D377-2FFF-4A33-8FB4-AAA51494E5C6}"
-	ProjectSection(SolutionItems) = preProject
-		PlanteWatchBrowser\src\index.htm = PlanteWatchBrowser\src\index.htm
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ts", "ts", "{FCF0C223-BD7E-4D2C-861C-D4CACF537802}"
-	ProjectSection(SolutionItems) = preProject
-		PlanteWatchBrowser\src\js\index.ts = PlanteWatchBrowser\src\js\index.ts
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,7 +55,6 @@ Global
 		{7BCB3FB2-FA46-499F-A7BB-DB3212629375} = {F617ED38-E155-4B1E-B80A-C3D774EB40B1}
 		{6CC541E2-ECA4-4BAD-995F-8D5F7469425A} = {F617ED38-E155-4B1E-B80A-C3D774EB40B1}
 		{EC662B5D-3914-4851-B6AF-EB63A596F609} = {F617ED38-E155-4B1E-B80A-C3D774EB40B1}
-		{FCF0C223-BD7E-4D2C-861C-D4CACF537802} = {1FD4D377-2FFF-4A33-8FB4-AAA51494E5C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F80632EF-7588-4776-BE9B-CCEC905948B3}
