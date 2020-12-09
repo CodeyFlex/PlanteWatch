@@ -218,9 +218,12 @@ namespace PlanteWatch
                 //All input
                 if (_input == "All" | _input == "1")
                 {
+                    Console.WriteLine("Type Token key for Trefle API: \n");
+                    _input = Console.ReadLine();
+
                     Console.WriteLine("All API Data: \n");
 
-                        worker.Start();
+                        worker.Start(_input);
                 }
 
                 //Back input
