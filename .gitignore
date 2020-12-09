@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+/PlanteWatch/Token.cs
+/RestApi/Token.cs
