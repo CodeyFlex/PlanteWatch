@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav id="app"
+            class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-leaf"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>PlanteWatch</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i
+                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown no-arrow"><span
+                                    class="d-none d-lg-inline mr-2 text-gray-600 small">Mighty Morphin Flower
+                                    Arrangers</span><img class="border rounded-circle img-profile"
+                                    src="assets/img/avatars/avatar1.jpeg"></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3>
+                    </div>
+                    <div class="row" style="padding-bottom: 5px;padding-top: 5px;">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
+                                                <span>Greenhouses</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0">
+                                                <span>{{greenhousesTotal}}</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-house-damage fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1">
+                                                <span>Plants</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>{{plantsTotal}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-leaf fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-info py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1">
+                                                <span>Plant Health</span></div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3">
+                                                        <span>50%</span></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm">
+                                                        <div class="progress-bar bg-info" aria-valuenow="50"
+                                                            aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                                                            <span class="sr-only">50%</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
+                                                <span>Warnings</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>0</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 5px;padding-bottom: 5px;">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">Data</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul v-if="gettingPlants == true">
+                                        <ul v-if="plants.length > 0">
+                                            <li v-for="plant in plants">
+                                                Id: {{plant.id}} Name: {{plant.name}} Humidity: {{ plant.humidity}}
+                                                Nutrition:
+                                                {{plant.nutrition}}
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                    <ul v-if="gettingGreenhouses == true">
+                                        <ul v-if="greenhouses.length > 0">
+                                            <li v-for="greenhouse in greenhouses">
+                                                Id: {{greenhouse.id}} Name: {{greenhouse.name}} Humidity:
+                                                {{ greenhouse.humidity}} Temperature:
+                                                {{greenhouse.temperature}} LightLevel: {{greenhouse.lightLevel}}
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                    <ul v-if="searchingPlants == true">
+                                        <ul v-if="searchPlant != null">
+                                            Id: {{searchPlant.id}} Name: {{searchPlant.name}} Humidity:
+                                            {{ searchPlant.humidity}} Nutrition:
+                                            {{searchPlant.nutrition}}
+                                        </ul>
+                                    </ul>
+                                    <ul v-if="searchingGreenhouses == true">
+                                        <ul v-if="searchGreenhouse != null">
+                                            Id: {{searchGreenhouse.id}} Name: {{searchGreenhouse.name}} Humidity:
+                                            {{ searchGreenhouse.humidity}} Nutrition:
+                                            {{searchGreenhouse.nutrition}}
+                                        </ul>
+                                    </ul>
+                                    <ul v-if="searchingTrefleName == true">
+                                        Data: {{trefleModel.data}}
+                                        SearchData: {{searchTrefle}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-primary shadow d-flex flex-grow-1 flex-fill">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill"
+                                            style="border-width: 10px;padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1 flex-fill" type="button"
+                                                v-on:click="getAllGreenhouses()">Get All Greenhouses<br></button></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill" style="padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1" type="button"
+                                                v-on:click="getAllPlants()" style="background: rgb(28,200,138);">Get All
+                                                Plants<br></button></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-info shadow">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill" style="padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1 flex-fill" type="button"
+                                                v-on:click="getGreenhouseByName(searchInput)"
+                                                style="background: rgb(54,185,204);">Search Greenhouse Name<br></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-warning shadow">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill" style="padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1 flex-fill" type="button"
+                                                v-on:click="getPlantByName(searchInput)"
+                                                style="background: rgb(246,194,62);">Search Plant Name<br></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-danger shadow">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill" style="padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1 flex-fill" type="button"
+                                                v-on:click="searchTreflePlantByName(searchInput)"
+                                                style="background: rgb(231,74,59);">Search Trefle Plant
+                                                Name<br></button></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card text-white bg-secondary shadow">
+                                        <div class="card-body d-flex flex-grow-1 flex-fill" style="padding: 0;"><button
+                                                class="btn btn-primary d-flex flex-grow-1 flex-fill" type="button"
+                                                style="background: rgb(133,135,150);">(To be decided)<br></button></div>
+                                    </div>
+                                </div>
+                                <div class="col flex-fill">
+                                    <div class="card text-white bg-primary shadow d-flex flex-fill">
+                                        <div class="card-body d-flex flex-fill" style="border-width: 10px;">
+                                            <form
+                                                class="d-sm-inline-block flex-fill mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                                <div class="flex-fill input-group"><input
+                                                        class="bg-light form-control border-0 small" type="text"
+                                                        v-model="searchInput" placeholder="Search for ...">
+                                                    <div class="input-group-append"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-grow-1 flex-fill" style="padding-top: 5px;padding-bottom: 5px;">
+                        <div class="col-lg-6 d-flex flex-grow-1 flex-fill mb-4">
+                            <div class="card shadow d-flex flex-grow-1 flex-fill mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary font-weight-bold m-0">Plant health (By Greenhouse)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Greenhouse 1<span class="float-right">20%</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 20%;"><span class="sr-only">20%</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Greenhouse 2<span class="float-right">40%</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 40%;"><span class="sr-only">40%</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Greenhouse 3<span class="float-right">60%</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 60%;"><span class="sr-only">60%</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Greenhouse 4<span class="float-right">80%</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Greenhouse 5<span class="float-right">100%</span>
+                                    </h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-5 col-xl-4 d-flex flex-grow-1 flex-fill align-items-center">
+                            <div class="card shadow d-flex flex-grow-1 flex-fill mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary d-flex flex-grow-1 flex-fill font-weight-bold m-0">Weather
+                                    </h6>
+                                </div>
+                                <div class="d-flex flex-grow-1 flex-fill chart-area"><canvas
+                                        data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Earnings&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;0&quot;,&quot;10000&quot;,&quot;5000&quot;,&quot;15000&quot;,&quot;10000&quot;,&quot;20000&quot;,&quot;15000&quot;,&quot;25000&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Plantewatch 2020</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/script.min.js"></script>
+
+    <!-- Mit -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
