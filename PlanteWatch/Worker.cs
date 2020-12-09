@@ -1,28 +1,19 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
-using ModelLib.Model;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace PlanteWatch
 {
     class Worker
     {
-        private static Token token = new Token();
-        private static string GetPlantURI = "https://trefle.io/api/v1/plants?token=" + token.TokenValue + "&filter[common_name]=Orchardgrass";
         //private static string GetPlantURI = "http://localhost:51283/api/PlanteWatch/Trefle";
 
-        public async void Start()
+        public async void Start(string token)
         {
             
             using (var client = new WebClient())
             {
+                string GetPlantURI = "https://trefle.io/api/v1/plants?token=" + token + "&filter[common_name]=Orchardgrass";
+
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
                 string response = client.DownloadString(GetPlantURI);
