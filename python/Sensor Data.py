@@ -1,11 +1,8 @@
- sense_hat = SenseHat
-# import time
+ from sense_hat import SenseHat
+import time
 import random
  sense = SenseHat()
-
-
-random.randint(0,9)
-def temp(temp):
+def temp():
 
     return random.randint(20,30)
 
@@ -17,4 +14,6 @@ def light():
 
 sense.temp = temp()
 sense.humidity = humid()
-sense.lumination = light()
+sense.lightLevel = light()
+
+print(sense.temp and sense.humidity and sense.lightLevel)
