@@ -28,24 +28,31 @@ namespace RestApi.Controllers
         };
 
         // GET: api/<PlanteWatchController>
-        [HttpGet("Plant/")]
+        [HttpGet("Plants/")]
         public IEnumerable<PlanteModel> GetPlants()
         {
             return _plantData;
         }
 
         // GET: api/<PlanteWatchController>
-        [HttpGet("Greenhouse/")]
+        [HttpGet("Greenhouses/")]
         public IEnumerable<GreenhouseModel> GetGreenhouses()
         {
             return _greenhouseData;
         }
 
         // GET api/<PlanteWatchController>/3
-        [HttpGet("Plant/Id/{id}")]
+        [HttpGet("Plants/Id/{id}")]
         public PlanteModel GetPlantById(int id)
         {
             return _plantData.Find(i => i.Id.Equals(id));
+        }
+
+        // GET api/<PlanteWatchController>/3
+        [HttpGet("Greenhouse/Id/{id}")]
+        public GreenhouseModel GetGreenhouseById(int id)
+        {
+            return _greenhouseData.Find(i => i.Id.Equals(id));
         }
 
         // GET api/<PlanteWatchController>/2
@@ -62,11 +69,25 @@ namespace RestApi.Controllers
             return _greenhouseData.Find(i => i.Name.Contains(name));
         }
 
-        // GET api/<PlanteWatchController>/Humidity/35
-        [HttpGet("Plant/Humidity/{Humidity}")]
+        // Search api/<PlanteWatchController>/Humidity/35
+        [HttpGet("Plants/Humidity/{Humidity}")]
         public IEnumerable<PlanteModel> GetPlantsByHumidity(int humidity)
         {
-            return _plantData.FindAll(i => i.Humidity.Equals(humidity));
+            return _plantData.FindAll(i => i.Humidity >= humidity);
+        }
+
+        // Search api/<PlanteWatchController>/Temperature/35
+        [HttpGet("Greenhouses/Temperature/{Temperature}")]
+        public IEnumerable<GreenhouseModel> GetGreenhousesByTemperature(int temperature)
+        {
+            return _greenhouseData.FindAll(i => i.Temperature >= temperature);
+        }
+
+        // GET api/<PlanteWatchController>/Temperature/35
+        [HttpGet("Greenhouse/Temperature/{Temperature}")]
+        public GreenhouseModel GetGreenhouseByTemperature(int temperature)
+        {
+            return _greenhouseData.Find(i => i.Temperature.Equals(temperature));
         }
 
         /* doesn't return some values for some reason
@@ -77,12 +98,41 @@ namespace RestApi.Controllers
             return Worker.GetOnePlantAsync(name);
         }
         */
-        
+
         // GET api/<PlanteWatchController>/Trefle/
         [HttpGet("Trefle/Name/{Name}")]
         public String GetTreflePlantByName(string name)
         {
             return Worker.GetOnePlantAsync(name);
+        }
+
+        // PUT/Update api/<FanController>/Greenhouse/Put/5
+        [HttpPut("Greenhouse/Put/{id}")]
+        public void PutGreenhouse(int id, [FromBody] GreenhouseModel value)
+        {
+            GreenhouseModel greenhouse = GetGreenhouseById(id);
+            if (greenhouse != null)
+            {
+                greenhouse.Id = value.Id;
+                greenhouse.Name = value.Name;
+                greenhouse.Humidity = value.Humidity;
+                greenhouse.Temperature = value.Temperature;
+                greenhouse.LightLevel = value.LightLevel;
+            }
+        }
+
+        // PUT/Update api/<FanController>/Plant/Put/5
+        [HttpPut("Plant/Put/{id}")]
+        public void PutPlant(int id, [FromBody] PlanteModel value)
+        {
+            PlanteModel plant = GetPlantById(id);
+            if (plant != null)
+            {
+                plant.Id = value.Id;
+                plant.Name = value.Name;
+                plant.Humidity = value.Humidity;
+                plant.Nutrition = value.Nutrition;
+            }
         }
     }
 }
