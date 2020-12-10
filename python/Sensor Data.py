@@ -14,3 +14,7 @@ def humid():
 
 def light():
     return random.randint(30, 150)
+
+sense.temp = temp()
+sense.humidity = humid()
+sense.lumination = light()
