@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/PlanteWatch/Plant",
+      "launchUrl": "api/PlanteWatch/Plants",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "RestApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/PlanteWatch/Plant",
+      "launchUrl": "api/PlanteWatch/Plants",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

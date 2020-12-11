@@ -38,7 +38,19 @@ namespace RestApiTest
         [TestMethod]
         public void GetPlantsByHumidityTest()
         {
-            Assert.AreEqual(1, _planteWatchController.GetPlantsByHumidity(35).Count());
+            Assert.AreEqual(5, _planteWatchController.GetPlantsByHumidity(35).Count());
+        }
+
+        [TestMethod]
+        public void GetGreenhousesByTemperatureTest()
+        {
+            Assert.AreEqual(2, _planteWatchController.GetGreenhousesByTemperature(10).Count());
+        }
+
+        [TestMethod]
+        public void GetGreenhouseByTemperatureTest()
+        {
+            Assert.AreEqual(0, _planteWatchController.GetGreenhouseByTemperature(10).Id);
         }
 
         [TestMethod]
@@ -58,6 +70,20 @@ namespace RestApiTest
         public void GetTreflePlantByNameTest()
         {
             Assert.IsNotNull(_planteWatchController.GetTreflePlantByName("Orchardgrass"));
+        }
+
+        [TestMethod]
+        public void PutGreenhouseByIdTest()
+        {
+            _planteWatchController.PutGreenhouse(2, new GreenhouseModel(2, "Greenhouse Put Test", 20, 40, 20));
+            Assert.AreEqual("Greenhouse Put Test", _planteWatchController.GetGreenhouseById(2).Name);
+        }
+
+        [TestMethod]
+        public void PutPlantByIdTest()
+        {
+            _planteWatchController.PutPlant(4, new PlanteModel(4, "Plant Put Test", 20, 40));
+            Assert.AreEqual("Plant Put Test", _planteWatchController.GetPlantById(4).Name);
         }
     }
 }
