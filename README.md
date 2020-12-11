@@ -7,3 +7,7 @@ Includes:
 - Console Consumer
 
 - Browser Consumer (Designed with bootstrap) (Coded with Vue, Typescript, HTML & Webpack)
+
+- Auto adjusting variables functionality
+
+- Get status of Real life objects varibles
