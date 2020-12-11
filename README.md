@@ -10,4 +10,4 @@ Includes:
 
 - Auto adjusting variables functionality
 
-- Get status of Real life objects varibles
+- Get status of Plants and Greenhouse variables (Temperature, Humidity, Nutrition, so on.)
