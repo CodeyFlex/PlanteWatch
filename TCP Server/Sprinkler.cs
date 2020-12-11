@@ -7,7 +7,7 @@ namespace TCP_Server
 {
     public class Sprinkler
     {
-        //Instance of PlanteModel to be tested
+        //Instance of PlanteWatchController
         private static PlanteWatchController _planteWatchController = new PlanteWatchController();
 
         //When a greenhouse exceeds 25 degrees, this function will lower it's temperature by 1 degree every minute,

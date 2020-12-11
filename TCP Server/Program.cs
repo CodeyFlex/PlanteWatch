@@ -7,17 +7,14 @@ namespace TCP_Server
 {
     class Program
     {
-
-        //Instance of PlanteModel to be tested
+        //Instance of PlanteWatchController
         private static PlanteWatchController _planteWatchController = new PlanteWatchController();
-
-        private string _uri;
 
         static void Main(string[] args)
         {
             /*
             TcpListener listener = new TcpListener(System.Net.IPAddress.Any, 25558);
-            listener.Start();
+            listener.StartGreenhouseTemperatureAdjuster();
 
             Console.WriteLine("Waiting for a connection.");
             TcpClient client = listener.AcceptTcpClient();
@@ -31,14 +28,18 @@ namespace TCP_Server
 
             while (true)
             {
+                Console.WriteLine("Getting status of plants and greenhouses: ");
+                Worker.StartPlantStatusGetter();
+                Worker.StartGreenhouseStatusGetter();
+                
                 if (_planteWatchController.GetGreenhousesByTemperature(10).Count() >= 1)
                 {
-                    Console.WriteLine("Successfully executed Start Sprinkler!");
-                    Worker.Start();
+                    Console.WriteLine("Successfully executed StartGreenhouseTemperatureAdjuster Sprinkler!");
+                    Worker.StartGreenhouseTemperatureAdjuster();
                 }
                 else
                 {
-                    Console.WriteLine("Failed to execute Start Sprinkler!");
+                    Console.WriteLine("Failed to execute StartGreenhouseTemperatureAdjuster Sprinkler!");
                     Console.WriteLine(_planteWatchController.GetGreenhousesByTemperature(25).Count());
                 }
                 Thread.Sleep(6000);
