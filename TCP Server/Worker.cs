@@ -14,6 +14,7 @@ namespace TCP_Server
 
         private static String _uriGetGreenhousesByTemperature = "http://localhost:51283/api/PlanteWatch/Greenhouses/Temperature/25";
         private static String _uriGetAllPlants = "http://localhost:51283/api/PlanteWatch/Plants/";
+
         public static async void StartGreenhouseTemperatureAdjuster()
         {
             List<GreenhouseModel> greenhouseList = new List<GreenhouseModel>();

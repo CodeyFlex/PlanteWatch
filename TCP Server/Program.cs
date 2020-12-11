@@ -29,10 +29,11 @@ namespace TCP_Server
             while (true)
             {
                 Console.WriteLine("Getting status of plants and greenhouses: ");
+                
                 Worker.StartPlantStatusGetter();
                 Worker.StartGreenhouseStatusGetter();
                 
-                if (_planteWatchController.GetGreenhousesByTemperature(10).Count() >= 1)
+                if (_planteWatchController.GetGreenhousesByTemperature(25).Count() >= 1)
                 {
                     Console.WriteLine("Successfully executed StartGreenhouseTemperatureAdjuster Sprinkler!");
                     Worker.StartGreenhouseTemperatureAdjuster();
